@@ -1,0 +1,15 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Deny all access by default.
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+
+    // Example: allow authenticated reads on a folder.
+    // match /public/{fileName} {
+    //   allow read: if request.auth != null;
+    //   allow write: if false;
+    // }
+  }
+}
