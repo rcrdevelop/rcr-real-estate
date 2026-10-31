@@ -3,7 +3,7 @@
 
 import { defineConfig } from "#q-app";
 
-export default defineConfig((/* ctx */) => {
+export default defineConfig((ctx) => {
   return {
     // https://v2.quasar.dev/quasar-cli-vite/prefetch-feature
     // preFetch: true,
@@ -31,6 +31,10 @@ export default defineConfig((/* ctx */) => {
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#build
     build: {
+      env: {
+        clientPrefix: ["QCLI_", "VITE_"],
+        file: ctx.dev ? [] : [".env.production"]
+      },
       target: {
         // browser: 'baseline-widely-available',
         // node: 'node22'
@@ -101,7 +105,7 @@ export default defineConfig((/* ctx */) => {
       // directives: [],
 
       // Quasar plugins
-      plugins: []
+      plugins: ["Notify"]
     },
 
     // animations: 'all', // --- includes all animations

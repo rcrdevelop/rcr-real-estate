@@ -37,10 +37,26 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       Record<never, never>,
       | '//(index)'
+      | '//admin'
+      | '//contratos'
     >,
     '//(index)': RouteRecordInfo<
       '//(index)',
       '/',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '//admin': RouteRecordInfo<
+      '//admin',
+      '/admin',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '//contratos': RouteRecordInfo<
+      '//contratos',
+      '/contratos',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -69,6 +85,8 @@ declare module 'vue-router/auto-routes' {
       routes:
         | '/'
         | '//(index)'
+        | '//admin'
+        | '//contratos'
       views:
         | 'default'
       pathParamNames:
@@ -77,6 +95,22 @@ declare module 'vue-router/auto-routes' {
     'src/pages/index/(index).vue': {
       routes:
         | '//(index)'
+      views:
+        | never
+      pathParamNames:
+        | never
+    }
+    'src/pages/index/admin.vue': {
+      routes:
+        | '//admin'
+      views:
+        | never
+      pathParamNames:
+        | never
+    }
+    'src/pages/index/contratos.vue': {
+      routes:
+        | '//contratos'
       views:
         | never
       pathParamNames:

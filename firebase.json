@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "real-state-rcr",
     "public": "dist/spa",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
@@ -35,14 +36,16 @@
             "value": "public, max-age=31536000"
           }
         ]
+      },
+      {
+        "source": "**",
+        "headers": [
+          {
+            "key": "Content-Security-Policy",
+            "value": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.firebasedatabase.app wss://*.firebaseio.com; frame-ancestors 'self' https://portfolio-rcr.web.app https://portfolio-rcr.firebaseapp.com"
+          }
+        ]
       }
     ]
-  },
-  "firestore": {
-    "rules": "firestore.rules",
-    "indexes": "firestore.indexes.json"
-  },
-  "storage": {
-    "rules": "storage.rules"
   }
 }
